@@ -8,11 +8,19 @@ from core.db import CurrencyHistory, Subscriber, session
 
 
 async def send_currency_rate(message: types.Message):
+    """
+    Отправляет текущий курс доллара.
+
+    """
     usd_to_rub = await get_exchange_rate()
     await process_currency_rate(message.chat.id, usd_to_rub)
 
 
 async def send_currency_rate_to_subscribers():
+    """
+    Отправляет текущий курс доллара всем подписчикам.
+
+    """
     usd_to_rub = await get_exchange_rate()
     subscribers = session.query(Subscriber).all()
     for subscriber in subscribers:
@@ -21,6 +29,10 @@ async def send_currency_rate_to_subscribers():
 
 
 async def get_exchange_rate():
+    """
+    Получает курс доллара запросом к API
+
+    """
     response = requests.get('https://api.exchangerate-api.com/v4/latest/USD')
     data = response.json()
     usd_to_rub = data['rates']['RUB']
@@ -28,6 +40,10 @@ async def get_exchange_rate():
 
 
 async def process_currency_rate(chat_id, usd_rate):
+    """
+    Обрабатывает текущий курс доллара.
+
+    """
     if usd_rate is not None:
         await bot.send_message(chat_id=chat_id, text=f"Текущий курс доллара к рублю: {usd_rate}")
         history = CurrencyHistory(user_id=chat_id, date=datetime.datetime.now(), currency_rate=usd_rate)
