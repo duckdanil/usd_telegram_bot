@@ -16,12 +16,13 @@
 
 Для обоих способов запуска (локального и через Docker Compose), создайте файл .env в корневой папке проекта и заполните его следующими переменными окружения (по аналогии с файлом env-example):
 
-1.BOT_TOKEN=ВАШ_ТОКЕН_БОТА
-2.POSTGRES_USER=postgres
-3.POSTGRES_PASSWORD=postgres
-4.POSTGRES_HOST=db
-5.POSTGRES_PORT=5432
-6.POSTGRES_DB=postgres
+BOT_TOKEN=ВАШ_ТОКЕН_БОТА<br>
+POSTGRES_USER=postgres<br>
+POSTGRES_PASSWORD=postgres<br>
+POSTGRES_HOST=db<br>
+POSTGRES_PORT=5432<br>
+POSTGRES_DB=postgres
+
 
 ## Запуск локально
 
