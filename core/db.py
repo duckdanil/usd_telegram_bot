@@ -5,8 +5,10 @@ from config import DB_CONNECTION, db_user, db_password, db_host, db_port, db_nam
 
 if DB_CONNECTION == "container":
     engine = create_engine(f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}")
-else:
+elif DB_CONNECTION == "local":
     engine = create_engine('sqlite:///usd_history.db')
+else:
+    raise ValueError("Invalid DB_CONNECTION value. Supported values are 'container' and 'local'")
 
 Base = declarative_base()
 
