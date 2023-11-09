@@ -25,11 +25,11 @@ POSTGRES_DB=postgres
 
 ## Запуск локально
 
-git clone https://github.com/duckdanil/usd_telegram_bot.git
-pip install -r requirements.txt
-Укажите DB_CONNECTION=local в файле «config.py» перед запуском бота локально.
-python main.py
-Бот будет запущен с использованием базы данных SQLite.
+1. git clone https://github.com/duckdanil/usd_telegram_bot.git
+2. pip install -r requirements.txt
+3. Укажите DB_CONNECTION=local в файле «config.py» перед запуском бота локально.
+4. python main.py
+5. Бот будет запущен с использованием базы данных SQLite.
 
 ## Запуск с использованием Docker Compose
 
