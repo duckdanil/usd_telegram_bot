@@ -25,15 +25,16 @@ POSTGRES_DB=postgres
 
 ## Запуск локально
 
-1. Укажите DB_CONNECTION=local в файле «config.py» перед запуском бота локально.
-2. Склонируйте репозиторий и установите необходимые зависимости.
-3. Запустите бота с помощью команды python main.py в корневой папке проекта.
-4. Бот будет запущен с использованием базы данных SQLite.
+git clone https://github.com/duckdanil/usd_telegram_bot.git
+pip install -r requirements.txt
+Укажите DB_CONNECTION=local в файле «config.py» перед запуском бота локально.
+python main.py
+Бот будет запущен с использованием базы данных SQLite.
 
 ## Запуск с использованием Docker Compose
 
-1. В файлах «config.py» и «docker-compose.yml» установите DB_CONNECTION=container перед запуском бота в контейнере.
-2. Создайте образ, используя Dockerfile, командой docker build -t mytelegrambot ..
+1. В файлах «config.py» установите DB_CONNECTION=container перед запуском бота в контейнере.
+2. Создайте образ, используя Dockerfile, командой docker build -t mytelegrambot .
 3. Запустите контейнеры с помощью Docker Compose командой docker-compose up -d.
 4. Бот будет запущен в контейнере Docker, связанным с контейнером базы данных PostgreSQL.
 
